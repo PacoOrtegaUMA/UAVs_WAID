@@ -304,10 +304,8 @@ if __name__ == "__main__":
     PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
     MODELS_DIR = os.path.join(PROJECT_ROOT, "ModelsWAID")
 
-    # Dispositivo / variante (ajusta esta variable)
-    #Device = "isolda"  # por ejemplo
 
-    LOGS_DIR = os.path.join(PROJECT_ROOT, "logs")
+    LOGS_DIR = os.path.join(PROJECT_ROOT, "logs", "Waid_mAP")
     os.makedirs(LOGS_DIR, exist_ok=True)
 
     # Nombres de CSV
@@ -318,6 +316,9 @@ if __name__ == "__main__":
 
     IntVal = [0, 0.1, 1, 10, 100]
     confi = 0.1
+
+
+    
 
     for Modelo in Modelos:
         model_path = os.path.join(MODELS_DIR, f"WAID_{Modelo}.pt")
@@ -427,3 +428,4 @@ if __name__ == "__main__":
 
         df_ap.to_csv(file_ap, index=False)
         print(f"Resultados añadidos a '{file_ap}'.")
+

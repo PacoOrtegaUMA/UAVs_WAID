@@ -7,6 +7,28 @@ import time
 from datetime import datetime
 
 # -------------------------------------------------------
+# DEVICE
+# -------------------------------------------------------
+
+DEVICE="Isolda"
+
+# GPU
+if DEVICE=="Isolda":
+    USE_GPU = True     
+    GPU_ID = "2"
+    os.environ["CUDA_VISIBLE_DEVICES"] = GPU_ID
+    TRAIN_DEVICE = GPU_ID 
+    print("Using GPU:", GPU_ID)
+else:
+    print("Using CPU")
+
+
+    
+
+
+
+
+# -------------------------------------------------------
 # BASE DIR
 # -------------------------------------------------------
 
@@ -36,15 +58,15 @@ MODELS = [
     os.path.join(PROJECT_ROOT, "Models", "yolo11x.pt")
 ]
 # Levels
-#LEVELS = [1,2,3,4]
-LEVELS = [1,2,3]
+LEVELS = [1,2,3,4]
+#LEVELS = [1]
 # Output
 OUT_DIR = os.path.join(PROJECT_ROOT, "ModelsWAID")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # CSV
 
-LOG_DIR = os.path.join(PROJECT_ROOT, "logs")
+LOG_DIR = os.path.join(PROJECT_ROOT, "logs", DEVICE, "Train")
 os.makedirs(LOG_DIR, exist_ok=True)
 
 CSV_PATH = os.path.join(LOG_DIR , "training_times.csv")
@@ -53,21 +75,6 @@ CSV_HEADER = ["model", "train1", "train2", "train3", "train4"]
 LOG_CSV = os.path.join(LOG_DIR , "training_log.csv")
 LOG_HEADER = ["datetime","model","levels","fraction","epochs"]
 
-# -------------------------------------------------------
-# DEVICE
-# -------------------------------------------------------
-
-# GPU
-USE_GPU = True       # True = GPU | False = CPU
-GPU_ID = "2"
-
-if USE_GPU:
-    os.environ["CUDA_VISIBLE_DEVICES"] = GPU_ID
-    DEVICE = 2
-    print("Using GPU:", GPU_ID)
-else:
-    DEVICE = "cpu"
-    print("Using CPU")
 
 
 # -------------------------------------------------------
@@ -210,12 +217,12 @@ def main():
                 epochs=epochs,
                 imgsz=640,
                 batch=16,
-                device=DEVICE,
+                device=TRAIN_DEVICE,
                 lr0=lr0,
                 freeze=freeze,
                 fraction=DATA_FRACTION, 
                 seed=42,
-                project=os.path.join(PROJECT_ROOT, "runs"), 
+                project=os.path.join(PROJECT_ROOT, "runs", "Waid"),
                 name=run_name,
                 exist_ok=True
 

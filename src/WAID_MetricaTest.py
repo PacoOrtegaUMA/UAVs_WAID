@@ -6,15 +6,16 @@ import csv
 # DEVICE
 # -------------------------------------------------------
 
-USE_GPU = True
-GPU_ID = "2"
+DEVICE="Isolda"
 
-if USE_GPU:
+# GPU
+if DEVICE=="Isolda":
+    USE_GPU = True     
+    GPU_ID = "2"
     os.environ["CUDA_VISIBLE_DEVICES"] = GPU_ID
-    DEVICE = 2
+    TRAIN_DEVICE = GPU_ID 
     print("Using GPU:", GPU_ID)
 else:
-    DEVICE = "cpu"
     print("Using CPU")
 
 # -------------------------------------------------------
@@ -27,7 +28,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
 DATA_YAML = os.path.join(BASE_DIR, "waid.yaml")
 MODELS_DIR = os.path.join(PROJECT_ROOT, "ModelsWAID")
 
-LOGS_DIR = os.path.join(PROJECT_ROOT, "logs")
+LOGS_DIR = os.path.join(PROJECT_ROOT, "logs", "Waid_mAP")
 os.makedirs(LOGS_DIR, exist_ok=True)
 
 CSV_PATH_50 = os.path.join(LOGS_DIR, "WAID_map50_results.csv")
@@ -146,7 +147,7 @@ def main():
                     project=VAL_PROJECT,
                     name="val_%s_%d" % (tag, level),
                     exist_ok=True,
-                    device=DEVICE,
+                    device=TRAIN_DEVICE,
                     verbose=False
                 )
             except Exception as e:
@@ -201,3 +202,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

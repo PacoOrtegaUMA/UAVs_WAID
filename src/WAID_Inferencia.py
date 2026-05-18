@@ -9,7 +9,17 @@ import csv
 import math
 
 # Parámetros
-Device="Isolda"
+DEVICE="Isolda"
+
+# GPU
+if DEVICE=="Isolda":
+    USE_GPU = True     
+    GPU_ID = "2"
+    os.environ["CUDA_VISIBLE_DEVICES"] = GPU_ID
+    TRAIN_DEVICE = GPU_ID 
+    print("Using GPU:", GPU_ID)
+else:
+    print("Using CPU")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
@@ -18,7 +28,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
 
 IMAGES_DIR = os.path.join(PROJECT_ROOT, "WAID", "images", "test")
 MODELS_DIR = os.path.join(PROJECT_ROOT, "ModelsWAID")
-LOGS_DIR   = os.path.join(PROJECT_ROOT, "logs", Device)
+LOGS_DIR   = os.path.join(PROJECT_ROOT, "logs", DEVICE, "Inferencia")
 
 os.makedirs(LOGS_DIR, exist_ok=True)
 
@@ -60,7 +70,7 @@ def medir_tiempo_inferencia_modelo(model, image_files):
         print(f"[{idx}/{len(image_files)}] {nombre}", end="\r")
 
         t0 = time.perf_counter()
-        _ = model.predict(img_path, verbose=False)
+        _ = model.predict(img_path, verbose=False, device=TRAIN_DEVICE)
         t1 = time.perf_counter()
 
         tiempos.append((nombre, t1 - t0))
