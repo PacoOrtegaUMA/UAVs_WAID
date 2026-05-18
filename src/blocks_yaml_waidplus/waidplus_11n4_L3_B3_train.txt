@@ -1,0 +1,6 @@
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1139.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1036.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_53.JPG
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_419.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_399.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_319.jpg

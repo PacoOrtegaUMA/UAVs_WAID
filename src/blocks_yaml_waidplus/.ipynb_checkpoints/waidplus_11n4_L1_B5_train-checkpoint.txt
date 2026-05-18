@@ -1,0 +1,10 @@
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1295.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1178.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_968.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_23.JPG
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_617.JPG
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_452.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_845.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_316.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_718.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1661.jpg

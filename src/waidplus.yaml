@@ -1,0 +1,21 @@
+# waid.yaml
+path: /home/fozamorano/WAID
+
+train: WAIDplus/images/train
+val:  WAIDplus/images/test
+test: WAIDplus/images/test
+
+
+nc: 10
+
+names:
+  0: sheep
+  1: cattle
+  2: seal
+  3: camelus
+  4: kiang
+  5: zebra
+  6: crocodile
+  7: elephant
+  8: deer
+  9: horse

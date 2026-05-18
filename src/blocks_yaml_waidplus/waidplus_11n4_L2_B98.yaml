@@ -1,0 +1,16 @@
+names:
+  0: sheep
+  1: cattle
+  2: seal
+  3: camelus
+  4: kiang
+  5: zebra
+  6: crocodile
+  7: elephant
+  8: deer
+  9: horse
+nc: 10
+path: /home/fozamorano/WAID
+test: WAIDplus/images/test
+train: /home/fozamorano/WAID/src/blocks_yaml_waidplus/waidplus_11n4_L2_B98_train.txt
+val: WAIDplus/images/test

@@ -1,0 +1,16 @@
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1139.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1192.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1036.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_546.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_53.JPG
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_20.JPG
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_569.JPG
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_570.JPG
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_419.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1884.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_399.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_391.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_319.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_698.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1712.jpg
+/home/fozamorano/WAID/WAIDplus/images/train/dataset_1469.jpg

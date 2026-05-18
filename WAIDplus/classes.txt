@@ -1,0 +1,10 @@
+sheep
+cattle
+seal
+camelus
+kiang
+zebra
+crocodile - 6
+elephant - 7
+deer -8
+horse - 9
