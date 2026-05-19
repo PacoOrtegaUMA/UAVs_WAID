@@ -2,14 +2,16 @@ from ultralytics import YOLO
 import os, csv
 import numpy as np
 
-USE_GPU = True
-GPU_ID = "2"
-if USE_GPU:
+DEVICE="Isolda"
+
+# GPU
+if DEVICE=="Isolda":
+    USE_GPU = True     
+    GPU_ID = "2"
     os.environ["CUDA_VISIBLE_DEVICES"] = GPU_ID
-    DEVICE = 2
+    TRAIN_DEVICE = GPU_ID 
     print("Using GPU:", GPU_ID)
 else:
-    DEVICE = "cpu"
     print("Using CPU")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -57,7 +59,7 @@ def run_val_for_block(level_inc, block_id):
         data=DATA_YAML,
         imgsz=IMG_SIZE,
         batch=BATCH,
-        device=DEVICE,
+        device=TRAIN_DEVICE, 
         split="test",
         verbose=False,
         project=VAL_ROOT_DIR,  # Guardamos dentro de runs/ValWAID+

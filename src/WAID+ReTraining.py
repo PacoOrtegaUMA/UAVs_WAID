@@ -6,20 +6,23 @@ from datetime import datetime
 # CONFIG GLOBAL
 # =========================
 
-USE_GPU = True
-GPU_ID = "2"
-if USE_GPU:
+DEVICE="Isolda"
+
+# GPU
+if DEVICE=="Isolda":
+    USE_GPU = True     
+    GPU_ID = "2"
     os.environ["CUDA_VISIBLE_DEVICES"] = GPU_ID
-    DEVICE = 2
+    TRAIN_DEVICE = GPU_ID 
     print("Using GPU:", GPU_ID)
 else:
-    DEVICE = "cpu"
     print("Using CPU")
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
 
-LOG_DIR = os.path.join(PROJECT_ROOT, "logs")
+LOG_DIR = os.path.join(PROJECT_ROOT, "logs",DEVICE)
 os.makedirs(LOG_DIR, exist_ok=True)
 TIME_CSV = os.path.join(LOG_DIR, "waidplus_blocks_times.csv")
 
@@ -29,9 +32,9 @@ BASE_YAML = os.path.join(BASE_DIR, "waidplus.yaml")
 # Modelos WAID de partida
 MODELS_WAID = [
     os.path.join(PROJECT_ROOT, "ModelsWAID", "WAID_11n_4.pt"),
-    # os.path.join(PROJECT_ROOT, "ModelsWAID", "WAID_11s_4.pt"),
-    # os.path.join(PROJECT_ROOT, "ModelsWAID", "WAID_11m_4.pt"),
-    # os.path.join(PROJECT_ROOT, "ModelsWAID", "WAID_11l_4.pt"),
+    #os.path.join(PROJECT_ROOT, "ModelsWAID", "WAID_11s_4.pt"),
+    #os.path.join(PROJECT_ROOT, "ModelsWAID", "WAID_11m_4.pt"),
+    #os.path.join(PROJECT_ROOT, "ModelsWAID", "WAID_11l_4.pt"),
 ]
 
 # Niveles de reentreno incremental
@@ -351,7 +354,7 @@ def train_waidplus_incremental(model_path, level_inc):
             imgsz=640,
             batch=BATCH_SIZE,
             workers=WORKERS,
-            device=DEVICE,
+            device=TRAIN_DEVICE ,
             lr0=lr0,
             freeze=freeze,
             amp=False,
